@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/sgoinfre/goinfre/Perso/salsoysa/skirat/ex01'
+let g:netrw_dirhist_0='/mnt/nfs/homes/salsoysa/Documents/c08/c8r/ex05'
+let g:netrw_dirhist_9='/mnt/nfs/homes/salsoysa/Documents/test'
+let g:netrw_dirhist_8='/mnt/nfs/homes/salsoysa/Documents/c09/c9/ex01'
+let g:netrw_dirhist_7='/mnt/nfs/homes/salsoysa/Documents/c08/c8/ex00'
+let g:netrw_dirhist_6='/mnt/nfs/homes/salsoysa/Documents/c08/ex02'
+let g:netrw_dirhist_5='/mnt/nfs/homes/salsoysa/Documents/c08/ex03'
+let g:netrw_dirhist_4='/mnt/nfs/homes/salsoysa/Documents/c01/c01/ex06'
+let g:netrw_dirhist_3='/mnt/nfs/homes/salsoysa/Documents/c07/ex01'
+let g:netrw_dirhist_2='/mnt/nfs/homes/salsoysa/Documents/c04/c4r/ex03'
