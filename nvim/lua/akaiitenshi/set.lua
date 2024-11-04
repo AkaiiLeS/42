@@ -9,7 +9,6 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
-vim.opt.autoindent = true
 
 vim.opt.wrap = false
 
@@ -25,7 +24,13 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
+vim.opt.isfname:append("@-@")
+
+vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
-vim.opt.cursorline = true
 
+vim.g.c_formatter_42_set_equalprg = 1
+vim.g.c_formatter_42_format_on_save = 0
+
+-- local augroup = vim.api.nvim_create_augroup

@@ -1,1 +1,1 @@
-require("akaiissa")
+require("akaiitenshi")
