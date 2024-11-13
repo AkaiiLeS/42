@@ -4,8 +4,11 @@ return {
         "nvim-lua/plenary.nvim",
         name = "plenary"
   },
-
-    "github/copilot.vim",
+	{
+		"42Paris/42header",
+		lazy = false
+	},
+--    "github/copilot.vim",
     "eandrju/cellular-automaton.nvim",
     "gpanders/editorconfig.nvim",
 }

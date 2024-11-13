@@ -6,9 +6,11 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+--vim.opt.expandtab = true
 
+--vim.opt.cindent = true
 vim.opt.smartindent = true
+vim.opt.autoindent = true
 
 vim.opt.wrap = false
 
@@ -32,5 +34,7 @@ vim.opt.colorcolumn = "80"
 
 vim.g.c_formatter_42_set_equalprg = 1
 vim.g.c_formatter_42_format_on_save = 0
+vim.g.user42 = 'salsoysa'
+vim.g.mail42 = 'salsoysa@student.42.fr'
 
 -- local augroup = vim.api.nvim_create_augroup

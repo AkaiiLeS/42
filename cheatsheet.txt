@@ -1,0 +1,5 @@
+Vim Commands:
+
+copier en visual line puis recoller dans un autre tab de vim > <leader>y
+suppr et copier dans un buffer pour garder la copie en memoire > <leader>p
+bouger la ligne en visual mode > J ou K
