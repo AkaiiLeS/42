@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static void	*ft_memset(size_t size)
+static void	*ft_memfill(size_t size)
 {
 	void	*str;
 	size_t	i;
@@ -33,5 +33,5 @@ void	*ft_calloc(size_t nbe, size_t size)
 {
 	if (size && nbe > ((size_t)-1 / size))
 		return (NULL);
-	return (ft_memset(nbe * size));
+	return (ft_memfill(nbe * size));
 }
