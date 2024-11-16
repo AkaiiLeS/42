@@ -6,7 +6,7 @@
 #    By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 09:03:13 by salsoysa          #+#    #+#              #
-#    Updated: 2024/11/13 12:54:29 by salsoysa         ###   ########.fr        #
+#    Updated: 2024/11/16 15:24:25 by salsoysa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,17 @@ SUPP = ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
 				ft_putnbr_fd.c ft_putchar_fd.c ft_putstr_fd.c ft_striteri.c \
 				ft_putendl_fd.c
 
+BSRC = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
+				ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+				ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c 
+
 SRCS = ${LIBC} ${SUPP}
 
+SRCSF = ${LIBC} ${SUPP} ${BSRC}
+
 OBJS = ${SRCS:.c=.o}
+
+OBJSF = ${SRCSF:.c=.o}
 
 NAME = libft.a
 
@@ -38,8 +46,11 @@ ${NAME}: ${OBJS}
 
 all:	${NAME}
 
+bonus: ${OBJSF}
+	ar -rsc ${NAME} ${OBJSF}
+
 clean:
-	rm -f ${OBJS}
+	rm -f ${OBJSF}
 
 fclean: clean
 	rm -f ${NAME}
@@ -50,4 +61,4 @@ so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
 	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
