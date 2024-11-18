@@ -6,7 +6,7 @@
 /*   By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 15:06:37 by salsoysa          #+#    #+#             */
-/*   Updated: 2024/11/16 15:06:43 by salsoysa         ###   ########.fr       */
+/*   Updated: 2024/11/18 16:31:55 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ t_list	*ft_lstnew(void *content)
 		return (NULL);
 	head->content = content;
 	head->next = NULL;
-	head->prev = NULL;
 	return (head);
 }
