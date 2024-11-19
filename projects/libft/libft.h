@@ -6,7 +6,7 @@
 /*   By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 09:52:03 by salsoysa          #+#    #+#             */
-/*   Updated: 2024/11/16 15:18:20 by salsoysa         ###   ########.fr       */
+/*   Updated: 2024/11/19 09:26:31 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-	struct s_list	*prev;
 }					t_list;
 
 int					ft_isascii(int c);
