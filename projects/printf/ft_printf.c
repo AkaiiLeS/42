@@ -6,7 +6,7 @@
 /*   By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:48:45 by salsoysa          #+#    #+#             */
-/*   Updated: 2024/11/22 13:57:07 by salsoysa         ###   ########.fr       */
+/*   Updated: 2024/12/06 14:19:09 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,11 @@ static int	format_set(const char *str, va_list param, int i)
 	return (cnt);
 }
 
-int	ft_printf(const char *str, ...)
+static int	subprint(const char *str, va_list param)
 {
-	va_list	param;
-	int		i;
-	int		cnt;
+	int	i;
+	int	cnt;
 
-	va_start(param, str);
 	i = 0;
 	cnt = 0;
 	while (str[i])
@@ -59,6 +57,40 @@ int	ft_printf(const char *str, ...)
 		}
 		i++;
 	}
+	return (cnt);
+}
+
+int	ft_printf(const char *str, ...)
+{
+	va_list	param;
+	int		cnt;
+
+	va_start(param, str);
+	cnt = 0;
+	if (!str)
+		return (-1);
+	cnt = subprint(str, param);
 	va_end(param);
 	return (cnt);
 }
+//
+//#include <stdio.h>
+// int	main(void)
+//{
+// ft_printf("Mine:%d\n", 8);
+// printf("Std:%d\n", 8);
+// ft_printf("Mine:%s\n", "test");
+// printf("Std:%s\n", "test");
+// ft_printf("Mine:%p\n", "test");
+// printf("Std:%p\n", "test");
+// ft_printf("Mine:%c\n", 'T');
+// printf("Std:%c\n", 'T');
+// ft_printf("Mine:%u\n", 313199);
+// printf("Std:%u\n", 313199);
+// ft_printf("Mine:%%\n", '%');
+// printf("Std:%u\n", '%');
+// ft_printf("Mine:%x\n", 2455);
+// printf("Std:%x\n", 2455);
+// ft_printf("Mine:%X\n", 245598238);
+// printf("Std:%X\n", 245598238);
+//}

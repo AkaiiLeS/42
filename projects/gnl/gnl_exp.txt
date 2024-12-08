@@ -127,3 +127,12 @@ Voila le raisonnement global de ce qu'on nous demande.
 
 Variables Statics:
 
+Les variables statiques sont des variables qui gardent leur valeurs dans que le programme tourne,
+c'est à dire que même si la fonction qui contient la var static fait un return, si elle est appelée
+à nouveau, cette variable en question sera la même qu'à la fin du dernier appel de fonction.
+
+Cela permet donc de garder en mémoire une valeur pour pouvoir la réutiliser, c'est très pratique
+dans notre situation.
+
+
+Essais et échecs:

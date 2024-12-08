@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 15:56:31 by salsoysa          #+#    #+#             */
-/*   Updated: 2024/12/05 15:02:17 by salsoysa         ###   ########.fr       */
+/*   Created: 2024/11/25 16:27:09 by salsoysa          #+#    #+#             */
+/*   Updated: 2024/12/02 18:11:13 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -85,7 +85,7 @@ char	*ft_strchr(const char *s, int c)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t i;
+	unsigned int	i;
 	char			*str;
 
 	if (!s)
