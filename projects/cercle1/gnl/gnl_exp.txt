@@ -1,0 +1,138 @@
+Explications pour Get Next Line
+
+Les Attentes:
+Return les lignes d'un fichier que l'on passe en param une à une
+
+Les fonctions autorisées:
+Malloc / Free / read
+
+Malloc on connait, ici on utilisera calloc, on expliquera plus tard pourquoi
+
+Free on connait
+
+read: ssize_t read(int fd, void *buffer, size_t nbyte);
+Avec le prototype on peut voir que read prend en param un fd (FileDescriptor), référence du fichier
+que l'on veut lire, un buffer sur void, dans lequel read va lire un nombre nbyte de charactères.
+Il va return le nombre de bytes lu si la fonction réussi sinon elle return -1.
+
+Fonctionnement de read:
+
+Il est important de comprendre le comportement de read.
+
+Voici un exemple pour illustrer comment read va lire le fichier passé en argument.
+
+1/
+
+file = |Hey_Toi!$		($ = retour a la ligne, | = curseur ou index ou tête de lecture de read)
+	   	Bien?
+
+buffer = 
+
+nbyte = 3
+
+return = 
+
+
+2/
+
+file = Hey|_Toi!$
+	   Bien?
+
+buffer = Hey
+
+nbyte = 3
+
+return = 3
+
+
+3/
+
+file = Hey_To|i!$
+	   Tfq?
+
+buffer = _To
+
+nbyte = 3
+
+return = 3
+
+On peut voir que le buffer se fait écraser a chaque appel de read.
+
+...etc jusqu'a,
+
+file = Hey_Toi!$
+	   Tfq|?
+
+buffer = Tfq
+
+nbyte = 3
+
+return = 3
+
+puis 
+
+file = Hey_Toi!$
+	   Tfq?|
+
+buffer = ?
+
+nbyte = 3
+
+return = 1
+
+ici read n´a plus que "?" à lire donc il return que 1
+
+il fera un dernier appel et returnera 0 car il n'a plus rien à lire.
+
+Maintenant qu'on sait comment fonctionne read, on va voir comment on peut l'appliquer a GNL.
+
+
+Raisonnement d'Application:
+
+char	*get_next_line(int fd);
+
+file = |Hello_Le_S.$
+		Ciao.
+	
+buffer = 
+
+nbyte = 5
+
+Oublions pas que le buffer peut avoir une taille (taille de nbyte donc)variable comme indiqué dans le sujet.
+L'un des premiers soucis c'est le buffer qui se faire écraser a chaque passage, il faut donc une variable
+tmp pour stocker ce qui est dans le buffer. Appelons là tmp.
+
+A chaque read on va donc copier buffer dans tmp, mais il faut faire attention, on veux récuperer une ligne
+à la fois seulement, donc il faut faire un check dans tmp, et si \n il y a il faut cut la ligne la stocker
+dans "line" par exemple, et la supprimer de tmp.
+
+Dans notre exemple ca ferait:
+
+buffer = Hello		tmp = Hello
+buffer = _Le_S		tmp = Hello_Le_S
+buffer = .$Cia		tmp = Hello_Le_S.$Cia
+
+ici on va récupérer ce qui nous intéresse et suppr le reste
+
+tmp = Cia		line = Hello_Le_S.$
+
+et vu qu'on a une ligne, get_next_line va renvoyer la ligne complète
+
+On arrive maintenant sur la deuxième difficulté de l'exo, quand on return notre ligne, la tmp se vide
+automatiquement même si notre tête de lecture reste à la dernière position, c'est ici qu'on va utiliser 
+la variable static. Avec ca on peut garder "Cia"dans tmp et copier le reste de la ligne dans tmp, puis dans
+line.
+
+Voila le raisonnement global de ce qu'on nous demande.
+
+Variables Statics:
+
+Les variables statiques sont des variables qui gardent leur valeurs dans que le programme tourne,
+c'est à dire que même si la fonction qui contient la var static fait un return, si elle est appelée
+à nouveau, cette variable en question sera la même qu'à la fin du dernier appel de fonction.
+
+Cela permet donc de garder en mémoire une valeur pour pouvoir la réutiliser, c'est très pratique
+dans notre situation.
+
+
+Essais et échecs:
