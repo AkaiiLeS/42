@@ -6,7 +6,7 @@
 /*   By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:48:45 by salsoysa          #+#    #+#             */
-/*   Updated: 2025/01/14 17:12:45 by salsoysa         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:31:27 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,22 +76,22 @@ int	ft_printf(const char *str, ...)
 	return (cnt);
 }
 //
- //int	main(void)
+//int	main(void)
 //{
- //ft_printf("Mine:%d\n", ft_printf("%s", "it works!!"));
- //printf("Std:%d\n", ft_printf("%s", "it works!!"));
- //ft_printf("Mine:%s\n", "test");
- //printf("Std:%s\n", "test");
- //ft_printf("Mine:%p\n", "test");
- //printf("Std:%p\n", "test");
- //ft_printf("Mine:%c\n", 'T');
- //printf("Std:%c\n", 'T');
- //ft_printf("Mine:%u\n", 313199);
- //printf("Std:%u\n", 313199);
- //ft_printf("Mine:%%\n", '%');
- //printf("Std:%u\n", '%');
- //ft_printf("Mine:%x\n", 2455);
- //printf("Std:%x\n", 2455);
- //ft_printf("Mine:%X\n", 245598238);
- //printf("Std:%X\n", 245598238);
-}
+//	ft_printf("Mine:%d\n", ft_printf("%s", "it works!!"));
+//	printf("Std:%d\n", ft_printf("%s", "it works!!"));
+//	ft_printf("Mine:%s\n", "test");
+//	printf("Std:%s\n", "test");
+//	ft_printf("Mine:%p\n", "test");
+//	printf("Std:%p\n", "test");
+//	ft_printf("Mine:%c\n", 'T');
+//	printf("Std:%c\n", 'T');
+//	ft_printf("Mine:%u\n", 313199);
+//	printf("Std:%u\n", 313199);
+//	ft_printf("Mine:%%\n", '%');
+//	printf("Std:%u\n", '%');
+//	ft_printf("Mine:%x\n", 2455);
+//	printf("Std:%x\n", 2455);
+//	ft_printf("Mine:%X\n", 245598238);
+//	printf("Std:%X\n", 245598238);
+//}
