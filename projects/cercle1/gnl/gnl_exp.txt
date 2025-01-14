@@ -136,3 +136,6 @@ dans notre situation.
 
 
 Essais et échecs:
+J'ai essayé eu plusieurs problèmes de leaks et de segfaults, que j'ai pu corriger en revoyant
+les codes de mes fonctions de base. Le projet se fait assez facilement une fois qu'on comprends
+ce qui est attendu de nous, et comment fonctionne "read". 
