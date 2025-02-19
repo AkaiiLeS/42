@@ -6,12 +6,17 @@
 #    By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/21 11:28:43 by salsoysa          #+#    #+#              #
-#    Updated: 2025/01/28 18:50:40 by salsoysa         ###   ########.fr        #
+#    Updated: 2025/01/29 19:34:28 by salsoysa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PRINTF = printf/libftprintf.a
-PRINTFDIR = printf/
+NAME = libft.a
+
+CC = cc
+
+CFLAGS = -Wall -Werror -Wextra -g3 -I ./
+
+AR = ar rcs
 
 LIBC = libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c \
 	   libft/ft_isascii.c libft/ft_isalpha.c libft/ft_isalnum.c \
@@ -28,40 +33,30 @@ LIBC = libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c \
 	   libft/ft_putchar_fd.c libft/ft_putstr_fd.c \
 	   libft/ft_striteri.c libft/ft_putendl_fd.c
 
-List_SRC = libft/ft_lstnew_bonus.c libft/ft_lstadd_front_bonus.c \
+LIST = libft/ft_lstnew_bonus.c libft/ft_lstadd_front_bonus.c \
 		   libft/ft_lstsize_bonus.c libft/ft_lstlast_bonus.c \
 		   libft/ft_lstadd_back_bonus.c libft/ft_lstdelone_bonus.c \
 		   libft/ft_lstclear_bonus.c libft/ft_lstiter_bonus.c \
 		   libft/ft_lstmap_bonus.c 
 
-SRCS = ${LIBC} ${List_SRC}
+SRCS = ${LIBC} ${LIST} 
 
 OBJS = ${SRCS:.c=.o}
 
-NAME = libft.a
+.c.o: $(SRC)
+	@${CC} ${CFLAGS} -c -o $@ $<
 
-CC = cc
-
-CFLAGS = -Wall -Werror -Wextra -g3 -I ./
-
-.c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
-
-${NAME}: ${OBJS} ${PRINTF}
-	ar -rcs ${NAME} ${OBJ} ${PRINTF}
+${NAME}: ${OBJS}  
+	@$(AR) $@ $^
 
 all:	${NAME}
 
-${PRINTF}: ${PRINTFDIR}
-	@${MAKE} --no-print-directory -C ${PRINTFDIR}
-
 clean:
-	@${MAKE} --no-print-directory -C ${PRINTFDIR}
-	rm -f ${OBJS}
+	@rm -f *.o
+	@echo "Clean Done !"
 
 fclean: clean
-	@${MAKE} --no-print-directory fclean -C ${PRINTFDIR}
-	rm -f ${NAME}
+	@rm -f ${NAME}
 
 re:	fclean all
 
