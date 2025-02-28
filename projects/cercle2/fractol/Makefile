@@ -15,7 +15,7 @@ INC = -I ./includes/libft/\
 	  -I ./headers/\
 	  -I ./minilibx-linux/
 
-SRC = $(addprefix src/, $(addsuffix .c, main init checks))
+SRC = $(addprefix src/, $(addsuffix .c, main init checks render utils events))
 
 OBJ = $(SRC:.c=.o)
 

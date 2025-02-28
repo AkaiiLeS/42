@@ -6,7 +6,7 @@
 /*   By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 23:10:42 by salsoysa          #+#    #+#             */
-/*   Updated: 2025/01/31 19:15:45 by salsoysa         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:31:36 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,42 +18,28 @@ void	mlx_failure(void)
 	exit(EXIT_FAILURE);
 }
 
-static double	atod(char *av)
+int	skip_space_sign(char *str, int *is_neg)
 {
-	long	pre_dec;
-	double	post_dec;
-	double	power;
-	int		sign;
+	int	i;
 
-	pre_dec = 0;
-	post_dec = 0;
-	sign = 1;
-	power = 1;
-	while ((*av <= 13 && *av >= 9) || *av == 32)
-		av++;
-	while (*av == '+' || *av == '-')
-		if (*av == '-')
-			sign = -sign;
-	while (*av != '.' && *av)
-		pre_dec = (pre_dec * 10) + (*av++ - 48);
-	if (*av == '.')
-		av++;
-	while (*av)
+	i = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		power /= 10;
-		post_dec = post_dec + (*av++ - 48) * power;
+		if (str[i] == '-')
+			*is_neg *= -1;
+		i++;
 	}
-	return ((pre_dec + post_dec) * sign);
+	return (i);
 }
 
 void	error_msg(void)
 {
 	ft_putendl_fd("Please try again with the correct input:\n", 2);
 	ft_putendl_fd("For the mandelbrot set, type in: ./fractol mandelbrot\n", 2);
-	ft_putendl_fd("For the julia set, type in: ./fractol julie <d1> <d2>\n", 2);
-	ft_putendl_fd("For the burningship set, type in: \
-./fractol burningship\n",
-					2);
+	ft_putendl_fd("For the julia set, type in: ./fractol julia <d1> <d2>", 2);
+	ft_putendl_fd("with d1 and d2 between -1.5 and 1.5\n", 2);
 	exit(EXIT_FAILURE);
 }
 
@@ -89,12 +75,7 @@ int	check_args(int ac, char **av, t_fractal *fractol)
 {
 	if (ac == 2 && !ft_strncmp(av[1], "mandelbrot", 11))
 	{
-		fractol->name = av[1];
-		return (1);
-	}
-	else if (ac == 2 && !ft_strncmp(av[1], "burningship", 11))
-	{
-		fractol->name = av[1];
+		fractol->name = MANDELBROT;
 		return (1);
 	}
 	else if (ac == 4 && !ft_strncmp(av[1], "julia", 6))
@@ -102,7 +83,7 @@ int	check_args(int ac, char **av, t_fractal *fractol)
 		{
 			check_julia(av[2]);
 			check_julia(av[3]);
-			fractol->name = av[1];
+			fractol->name = JULIA;
 			fractol->jx = atod(av[2]);
 			fractol->jy = atod(av[3]);
 			return (1);
