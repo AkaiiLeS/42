@@ -6,7 +6,7 @@
 #    By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/21 11:28:43 by salsoysa          #+#    #+#              #
-#    Updated: 2025/01/29 19:34:28 by salsoysa         ###   ########.fr        #
+#    Updated: 2025/02/28 12:08:30 by salsoysa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ ${NAME}: ${OBJS}
 all:	${NAME}
 
 clean:
-	@rm -f *.o
+	@rm -f libft/*.o
 	@echo "Clean Done !"
 
 fclean: clean
