@@ -163,5 +163,5 @@ système wait et waitpid.
 
 ### Wait et Waitpid:
 
-Pour mettre en pause l'exec du proccess P
+Pour mettre en pause l'exec du proccess P, on peut utiliser la fonction wait
 
