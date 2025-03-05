@@ -40,7 +40,7 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- commenter et decommenter la selection
-vim.keymap.set("v", "<leader>n", ":'<,'>norm ^i//<CR>gv")
+vim.keymap.set("v", "<leader>n", ":'<,'>norm 0i//<CR>gv")
 vim.keymap.set("v", "<leader>m", ":'<,'>norm ^xx<CR>gv")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
