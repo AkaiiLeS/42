@@ -6,7 +6,7 @@
 /*   By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 09:52:03 by salsoysa          #+#    #+#             */
-/*   Updated: 2025/01/31 16:55:02 by salsoysa         ###   ########.fr       */
+/*   Updated: 2025/03/05 14:14:47 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 # define LIBFT_H
 
+# include <fcntl.h>
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <fcntl.h>
 # ifndef BUFFER_SIZE
-#	define BUFFER_SIZE 100
+#  define BUFFER_SIZE 100
 # endif
 # ifndef MAX_FD
 #  define MAX_FD 1024
-# endif 
+# endif
 
 // struct
 typedef struct s_list
@@ -82,8 +82,8 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 
-//gnl
+// gnl
 
-char	*get_next_line(int fd);
+char				*get_next_line(int fd);
 
 #endif

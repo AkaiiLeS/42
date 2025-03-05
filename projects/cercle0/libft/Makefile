@@ -6,7 +6,7 @@
 #    By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 09:03:13 by salsoysa          #+#    #+#              #
-#    Updated: 2025/01/21 11:51:06 by salsoysa         ###   ########.fr        #
+#    Updated: 2025/03/05 14:56:46 by salsoysa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,9 +56,5 @@ fclean: clean
 	rm -f ${NAME}
 
 re:	fclean all
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 .PHONY: all clean fclean re bonus
