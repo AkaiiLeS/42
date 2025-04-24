@@ -6,7 +6,7 @@
 /*   By: akaiissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:17:42 by akaiissa          #+#    #+#             */
-/*   Updated: 2025/03/18 12:28:03 by akaiissa         ###   ########.fr       */
+/*   Updated: 2025/04/24 21:31:49 by akaiissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ int fail_msg(char *s1, char *s2, char *s3, int error);
 void hdparse(t_pipex *p);
 void file2(t_pipex *p);
 void    file1(t_pipex *p);
+
+// -- Parsing --//
+char *get_cmd(char *cmd, t_pipex *pipex);
 
 // -- Init -- //
 t_pipex pipex_i(int ac, char **av, char **envp);

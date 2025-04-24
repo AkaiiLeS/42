@@ -6,7 +6,7 @@
 # BLUE := \033[34m
 # RESET := \033[0m
 
-NAME = name
+NAME = pipex
 
 CC = cc
 CFLAGS = -Werror -Wextra -Wall
@@ -18,7 +18,7 @@ LIB = $(LIBP)$(LIBN)
 INC = -I ./includes/libft/\
 	  -I ./includes/headers/\
 
-SRC = $(addprefix src/, $(addsuffix .c, main))
+SRC = $(addprefix src/, $(addsuffix .c, pipex pars init errex files))
 
 OBJ = $(SRC:.c=.o)
 
@@ -31,9 +31,9 @@ $(LIB):
 	@make -sC  $(LIBP)
 
 $(NAME): $(OBJ)
-	@echo "Compiling name..."
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIB) $(INC) 
-	@echo "Done. name is ready for use"
+	@echo "Compiling pipex..."
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIB) $(INC)
+	@echo "Done. pipex is ready for use"
 
 a : all clean
 
@@ -49,7 +49,7 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@rm -f $(LIBP)$(LIBN)
-	@echo "name deleted"
+	@echo "pipex deleted"
 
 re: fclean all
 
