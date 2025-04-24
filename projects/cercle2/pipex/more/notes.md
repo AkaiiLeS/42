@@ -163,5 +163,25 @@ système wait et waitpid.
 
 ### Wait et Waitpid:
 
-Pour mettre en pause l'exec du proccess P, on peut utiliser la fonction wait
+Pour mettre en pause l'exec du proccess P, en attendant que le fils change de status, on peut
+utiliser l'appel système ***wait*** ou ***waitpid*** (<sys/wait.h>).
+```c
+pid_t wait(int *status);
+pid_t waitpid(pid_t pid, int *status, int options);
+```
+La différence entre ces deux appels se voit quand un process a plusieurs process fils. ***wait*** va
+stock le premier fils qui a finis, alors que ***waitpid*** aura la possibilité d'attendre le fils dont
+on lui a fourni le PID en ignorant les autres en plus de pouvoir gérer certaines options.
 
+*status* est le paramètre que les deux appels systèmes demandent, c'est un pointeur vers un <span style="background-color: #669bbc; border-radius: 5px; padding: 2px 5px;">int</span>, dans lequel
+<span style="background-color: #669bbc; border-radius: 5px; padding: 2px 5px;">wait</span> et <span style="background-color: #669bbc; border-radius: 5px; padding: 2px 5px;">waitpid</span> vont stocker le statut de fin du process fils récupéré, qu'on va utiliser pour savoir
+si le fils a bien fini son exec ou s'il y a eu un soucis, l'exec a été interrompu par exemple.
+
+<span style="background-color: #669bbc; border-radius: 5px; padding: 2px 5px;">Waitpid</span> prend deux autres params:
+
+- **pid**: Le PID du process fils qu'on doit attendre, dont le père connait la valeur grâce au retour de **fork**
+lors de la création du fils. Si on veut pas spécifier le fils dont on attends la fin, c'est l'équivalent de <span style="background-color: #669bbc; border-radius: 5px; padding: 2px 5px;">wait</span>
+(en gros **waitpid(-1, status, 0)** = **wait(status)**).
+
+- **options**: Il y a plusieurs options intéressante pour  <span style="background-color: #669bbc; border-radius: 5px; padding: 2px 5px;">waitpid</span>. **WNOHANG** force waitpid à retourner
+immédiatement si le fils n'a pas fini son exécution.
