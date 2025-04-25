@@ -6,7 +6,7 @@
 /*   By: akaiissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 20:10:32 by akaiissa          #+#    #+#             */
-/*   Updated: 2025/04/24 21:48:56 by akaiissa         ###   ########.fr       */
+/*   Updated: 2025/04/25 12:54:57 by akaiissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ static char *pars_cmd(char *cmd, char **paths)
         }
         if (access(cmd_p, F_OK | X_OK) == 0)
             return(cmd_p);
+        free_m(cmd_p, NULL);
         i++;
     }
     return (NULL);
