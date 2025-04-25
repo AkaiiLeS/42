@@ -6,7 +6,7 @@
 /*   By: akaiissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 16:49:58 by akaiissa          #+#    #+#             */
-/*   Updated: 2025/04/24 20:07:25 by akaiissa         ###   ########.fr       */
+/*   Updated: 2025/04/25 13:46:17 by akaiissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void    file1(t_pipex *p)
     if (p->heredoc == 1)
     {
         hdparse(p);
-        p->fdi = open(".heredoc.tmp", O_RDONLY);
+        p->fdi = open(".hd.tmp", O_RDONLY);
         if (p->fdi == -1)
             clean_exit(fail_msg("here_doc", ": ", strerror(errno), 1), p);
     }
@@ -25,7 +25,7 @@ void    file1(t_pipex *p)
     {
         p->fdi = open(p->av[1], O_RDONLY, 644);
         if (p->fdi == -1)
-            fail_msg(strerror(errno), ": ", p->av[1], 1);
+            clean_exit(fail_msg(strerror(errno), ": ", p->av[1], 1), p);
     }
 }
 
