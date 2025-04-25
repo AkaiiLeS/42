@@ -6,7 +6,7 @@
 /*   By: akaiissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:54:21 by akaiissa          #+#    #+#             */
-/*   Updated: 2025/04/24 21:42:35 by akaiissa         ###   ########.fr       */
+/*   Updated: 2025/04/25 15:28:51 by akaiissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ void    clean_exit(int error, t_pipex *p)
             free(p->pids);
         if (p->cmd_param != NULL || p->path != NULL)
             free_m(p->path, p->cmd_param);
+        if (p->heredoc == 1)
+            unlink(".h.tmp");
     }
-    if (p->heredoc == 1)
-        unlink(".h.tmp");
     exit(error);
-}
+    }
 
 void    free_m(char *malloc1, char **malloc2)
 {

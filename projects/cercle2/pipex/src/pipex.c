@@ -6,7 +6,7 @@
 /*   By: akaiissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 17:23:21 by akaiissa          #+#    #+#             */
-/*   Updated: 2025/04/25 12:24:57 by akaiissa         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:47:37 by akaiissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,11 @@ int main(int ac, char **av, char **envp)
     }
     else if (ac < 6 && !ft_strncmp("here_doc", av[1], 9))
         return (fail_msg("Try again: ", "./pipex here_doc LIMITER cmd1 cmd2 ... cmdn file2.", "", 1));
-    if (!envp || envp[0][0] == '\0')
-        clean_exit(fail_msg("There's an issue with the environment, did you try to remove it you sneaky litlle rat ?!", "", "", 1), &p);
+    if (!envp || !*envp)
+    {
+        ft_putstr_fd("Error: Empty environment\n", 2);
+        return 1;
+    }
     p = pipex_i(ac, av, envp);
     exiti = pipex(&p);
     return (exiti);
