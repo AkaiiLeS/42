@@ -6,7 +6,7 @@
 /*   By: akaiissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:54:21 by akaiissa          #+#    #+#             */
-/*   Updated: 2025/04/25 15:28:51 by akaiissa         ###   ########.fr       */
+/*   Updated: 2025/04/25 16:38:46 by akaiissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int fail_msg(char *s1, char *s2, char *s3, int error)
 {
-    ft_putstr_fd("Wrong ! ", 2);
+    ft_putstr_fd("pipex error: ", 2);
     ft_putstr_fd(s1, 2);
     ft_putstr_fd(s2, 2);
     ft_putendl_fd(s3, 2);
@@ -33,7 +33,7 @@ void    clean_exit(int error, t_pipex *p)
         if (p->cmd_param != NULL || p->path != NULL)
             free_m(p->path, p->cmd_param);
         if (p->heredoc == 1)
-            unlink(".h.tmp");
+            unlink(".hd.tmp");
     }
     exit(error);
     }

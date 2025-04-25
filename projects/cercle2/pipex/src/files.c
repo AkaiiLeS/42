@@ -6,7 +6,7 @@
 /*   By: akaiissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 16:49:58 by akaiissa          #+#    #+#             */
-/*   Updated: 2025/04/25 14:23:40 by akaiissa         ###   ########.fr       */
+/*   Updated: 2025/04/25 16:09:51 by akaiissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void    file1(t_pipex *p)
     {
         p->fdi = open(p->av[1], O_RDONLY, 644);
         if (p->fdi == -1)
-            clean_exit(fail_msg(strerror(errno), ": ", p->av[1], 1), p);
+            fail_msg(strerror(errno), ": ", p->av[1], 1);
     }
 }
 
