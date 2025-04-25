@@ -6,7 +6,7 @@
 /*   By: akaiissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 17:23:21 by akaiissa          #+#    #+#             */
-/*   Updated: 2025/04/24 22:24:57 by akaiissa         ###   ########.fr       */
+/*   Updated: 2025/04/25 12:24:57 by akaiissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int main(int ac, char **av, char **envp)
 
     if  (ac < 5)
     {
-        if (!ft_strncmp("here_doc", av[1], 9))
+        if (ac >= 2 && !ft_strncmp("here_doc", av[1], 9))
             return (fail_msg("Try again: ", "./pipex here_doc LIMITER cmd1 cmd2 ... cmdn file2.", "", 1));
         return (fail_msg("Try again: ", "./pipex file1 cmd1 cmd2 ... cmdn file2.", "", 1));
     }

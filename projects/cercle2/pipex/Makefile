@@ -6,7 +6,9 @@
 # BLUE := \033[34m
 # RESET := \033[0m
 
+
 NAME = pipex
+
 
 CC = cc
 CFLAGS = -Werror -Wextra -Wall
@@ -17,6 +19,8 @@ LIB = $(LIBP)$(LIBN)
 
 INC = -I ./includes/libft/\
 	  -I ./includes/headers/\
+
+all : $(LIB) $(NAME)
 
 SRC = $(addprefix src/, $(addsuffix .c, pipex pars init errex files))
 
@@ -37,7 +41,6 @@ $(NAME): $(OBJ)
 
 a : all clean
 
-all : $(LIB) $(NAME)
 
 bonus: all
 
