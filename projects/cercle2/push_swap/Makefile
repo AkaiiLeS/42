@@ -18,6 +18,8 @@ LIB = $(LIBP)$(LIBN)
 INC = -I ./includes/libft/\
 	  -I ./includes/headers/\
 
+all : $(LIB) $(NAME)
+
 SRC = $(addprefix src/, $(addsuffix .c, main))
 
 OBJ = $(SRC:.c=.o)
@@ -37,7 +39,6 @@ $(NAME): $(OBJ)
 
 a : all clean
 
-all : $(LIB) $(NAME)
 
 bonus: all
 
