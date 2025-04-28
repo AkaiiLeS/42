@@ -6,7 +6,7 @@
 /*   By: akaiissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 20:10:32 by akaiissa          #+#    #+#             */
-/*   Updated: 2025/04/28 15:50:54 by salsoysa         ###   ########.fr       */
+/*   Updated: 2025/04/28 17:08:22 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,32 +106,9 @@ char	*get_cmd(char *cmd, t_pipex *pipex)
 	cmd_p = pars_cmd(cmd, env_p);
 	if (!cmd_p)
 	{
-		fail_msg("command not found", ": ", pipex->av[pipex->child + 2], 1);
+		fail_msg("command not found", ": ", pipex->av[pipex->child + 2], 127);
 		return (NULL);
 	}
 	free_m(NULL, env_p);
 	return (cmd_p);
 }
-//
-// static char *pars_cmd(char *cmd, char **paths)
-//{
-//    int     i;
-//    char    *cmd_p;
-//
-//    cmd_p = NULL;
-//    i = 0;
-//    while (paths[i])
-//    {
-//        cmd_p = ft_strjoin(paths[i], cmd);
-//        if (!cmd_p)
-//        {
-//            clean_exit(fail_msg("couldn't get path", "", "", 1), NULL);
-//        }
-//        if (access(cmd_p, F_OK | X_OK) == 0)
-//            return (cmd_p);
-//        free(cmd_p);
-//        i++;
-//    }
-//    free_m(NULL, paths);
-//    return (NULL);
-//}

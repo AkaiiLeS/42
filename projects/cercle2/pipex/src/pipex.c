@@ -6,7 +6,7 @@
 /*   By: akaiissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 17:23:21 by akaiissa          #+#    #+#             */
-/*   Updated: 2025/04/28 15:47:12 by salsoysa         ###   ########.fr       */
+/*   Updated: 2025/04/28 17:08:55 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,10 @@ static int	pipex(t_pipex *p)
 	while (p->child < p->cmds_nu)
 	{
 		if (p->av[p->child + 2 + p->heredoc][0] == '\0')
+		{
 			p->cmd_param = ft_split("/bin/cat", ' ');
+			fail_msg("command not found", "", "", 1);
+		}
 		else
 			p->cmd_param = ft_split(p->av[p->child + 2 + p->heredoc], ' ');
 		if (!p->cmd_param)
@@ -81,9 +84,25 @@ static int	pipex(t_pipex *p)
 		if (p->pids[p->child] == -1)
 			clean_exit(fail_msg("fork error", ": ", strerror(errno), 1), p);
 		else if (p->pids[p->child] == 0)
+		{
 			set_child(p);
-		free_m(p->path, p->cmd_param);
-		p->child++;
+			free_m(p->path, p->cmd_param);
+			exit(EXIT_SUCCESS);
+		}
+		else
+		{
+			if (p->child > 0)
+			{
+				close(p->pipe[2 * (p->child - 1)]);     
+				close(p->pipe[2 * (p->child - 1) + 1]); 
+			}
+			if (p->child < p->cmds_nu - 1)
+            {
+                close(p->pipe[2 * p->child + 1]); 
+            }
+			free_m(p->path, p->cmd_param);
+			p->child++;
+		}
 	}
 	exiti = set_parent(p);
 	if (p->heredoc == 1)
