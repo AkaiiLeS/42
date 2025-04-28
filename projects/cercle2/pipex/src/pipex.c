@@ -6,7 +6,7 @@
 /*   By: akaiissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 17:23:21 by akaiissa          #+#    #+#             */
-/*   Updated: 2025/04/25 14:47:37 by akaiissa         ###   ########.fr       */
+/*   Updated: 2025/04/25 21:26:45 by akaiissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void set_child(t_pipex *p)
         redirect_file(p->pipe[2 * p->child - 2], p->pipe[2 * p->child + 1], p);
     clean_fds(p);
     if (p->cmd_param == NULL || p->path == NULL)
-        clean_exit(fail_msg(p->cmd_param[0], ": ", strerror(errno), 1), p);
+        clean_exit(127, p);
     if (execve(p->path, p->cmd_param, p->envp) == -1)
         clean_exit(fail_msg(p->cmd_param[0], ": ", strerror(errno), 1), p);
 }
@@ -70,7 +70,12 @@ static int  pipex(t_pipex *p)
     p->child = 0;
     while (p->child < p->cmds_nu)
     {
-        p->cmd_param = ft_split(p->av[p->child + 2 + p->heredoc], ' ');
+        //p->cmd_param = ft_split(p->av[p->child + 2 + p->heredoc], ' ');
+        if (p->av[p->child + 2 + p->heredoc][0] == '\0')
+            p->cmd_param = ft_split("/bin/cat", ' ');
+        else
+            p->cmd_param = ft_split(p->av[p->child + 2 + p->heredoc], ' ');
+
         if (!p->cmd_param)
             clean_exit(fail_msg("split error", "", "", 1), p);
         p->path = get_cmd(p->cmd_param[0], p);
@@ -104,7 +109,7 @@ int main(int ac, char **av, char **envp)
     if (!envp || !*envp)
     {
         ft_putstr_fd("Error: Empty environment\n", 2);
-        return 1;
+        return 127;
     }
     p = pipex_i(ac, av, envp);
     exiti = pipex(&p);
