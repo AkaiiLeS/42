@@ -6,7 +6,7 @@
 /*   By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 11:49:52 by salsoysa          #+#    #+#             */
-/*   Updated: 2025/04/30 11:55:06 by salsoysa         ###   ########.fr       */
+/*   Updated: 2025/04/30 13:28:52 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 long	ft_atol(const char *str)
 {
 	long	res;
-	int	sign;
+	int		sign;
 
 	res = 0;
 	sign = 1;

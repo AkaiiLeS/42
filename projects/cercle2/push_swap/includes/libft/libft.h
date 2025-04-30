@@ -6,7 +6,7 @@
 /*   By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 09:52:03 by salsoysa          #+#    #+#             */
-/*   Updated: 2025/04/30 11:58:17 by salsoysa         ###   ########.fr       */
+/*   Updated: 2025/04/30 12:41:06 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 # define LIBFT_H
 
 # include <fcntl.h>
+# include <limits.h>
 # include <stdarg.h>
 # include <stddef.h>
 # include <stdint.h>
 # include <stdlib.h>
-# include <limits.h>
 # include <string.h>
 # include <unistd.h>
 # ifndef BUFFER_SIZE
@@ -99,5 +99,7 @@ int					ft_print_uint(unsigned int nbr);
 int					ft_print_pvoid(uintptr_t p);
 int					ft_print_string(char *str);
 int					ft_print_decimal(int a);
-
+int					ft_puthex(unsigned int nbr, char *str_hex);
+int					ft_putptr(uintptr_t nbr);
+int					ft_putunbr(unsigned int nbr);
 #endif

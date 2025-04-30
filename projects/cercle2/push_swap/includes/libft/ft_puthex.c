@@ -6,11 +6,11 @@
 /*   By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:38:01 by salsoysa          #+#    #+#             */
-/*   Updated: 2024/11/22 13:18:21 by salsoysa         ###   ########.fr       */
+/*   Updated: 2025/04/30 12:38:54 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_puthex(unsigned int nbr, char *str_hex)
 {

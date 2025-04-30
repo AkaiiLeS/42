@@ -6,7 +6,7 @@
 # BLUE := \033[34m
 # RESET := \033[0m
 
-NAME = name
+NAME = push_swap
 
 CC = cc
 CFLAGS = -Werror -Wextra -Wall
@@ -20,7 +20,8 @@ INC = -I ./includes/libft/\
 
 all : $(LIB) $(NAME)
 
-SRC = $(addprefix src/, $(addsuffix .c, main))
+SRC = $(addprefix src/, $(addsuffix .c, main checks utils utils2 sort sort2 \
+	  swap move rr rotate push ))
 
 OBJ = $(SRC:.c=.o)
 
@@ -33,9 +34,9 @@ $(LIB):
 	@make -sC  $(LIBP)
 
 $(NAME): $(OBJ)
-	@echo "Compiling name..."
+	@echo "Compiling push_swap..."
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIB) $(INC) 
-	@echo "Done. name is ready for use"
+	@echo "Done. push_swap is ready for use"
 
 a : all clean
 
@@ -50,7 +51,7 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@rm -f $(LIBP)$(LIBN)
-	@echo "name deleted"
+	@echo "push_swap deleted"
 
 re: fclean all
 
