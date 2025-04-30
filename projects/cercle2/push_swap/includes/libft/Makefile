@@ -6,7 +6,7 @@
 #    By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/21 11:28:43 by salsoysa          #+#    #+#              #
-#    Updated: 2025/04/24 23:21:22 by akaiissa         ###   ########.fr        #
+#    Updated: 2025/04/30 08:12:20 by akaiissa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ LIBC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isascii.c ft_isalpha.c ft_isalnum.c \
 	   ft_strlcpy.c ft_strnstr.c ft_substr.c ft_strjoin.c ft_strtrim.c \
 	   ft_split.c ft_itoa.c ft_strmapi.c ft_putnbr_fd.c \
 	   ft_putchar_fd.c ft_putstr_fd.c ft_striteri.c ft_putendl_fd.c \
-	   get_next_line.c
+	   get_next_line.c ft_print_char.c ft_printf.c ft_print_decimal.c \
+	   ft_print_hex.c ft_print_pvoid.c ft_print_string.c ft_print_uint.c
 
 LIST = ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
 		   ft_lstsize_bonus.c ft_lstlast_bonus.c \
