@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akaiissa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: salsoysa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 23:22:54 by akaiissa          #+#    #+#             */
-/*   Updated: 2025/04/30 08:27:23 by akaiissa         ###   ########.fr       */
+/*   Created: 2025/04/24 23:22:54 by salsoysa          #+#    #+#             */
+/*   Updated: 2025/04/30 12:00:44 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	push_swap(t_list **a, t_list **b, const int size)
+static void	push_swap(t_ps **a, t_ps **b, const int size)
 {
 	if (!ft_is_sorted(*a))
 	{
@@ -29,8 +29,8 @@ static void	push_swap(t_list **a, t_list **b, const int size)
 
 int	main(int ac, char **av)
 {
-	t_list	*a;
-	t_list	*b;
+	t_ps	*a;
+	t_ps	*b;
 	int		size;
 
 	if (ac == 1)

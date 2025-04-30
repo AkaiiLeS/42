@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checks.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/30 12:00:05 by salsoysa          #+#    #+#             */
+/*   Updated: 2025/04/30 12:14:13 by salsoysa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 static void	freesplit(char **tab)
@@ -64,7 +76,7 @@ static int	valid_input(char **av)
 	return (1);
 }
 
-int	ft_check(int ac, char **av, t_list **stack_a, t_list **stack_b)
+int	ft_check(int ac, char **av, t_ps **stack_a, t_ps **stack_b)
 {
 	if (ac == 2)
 		av = ft_split(av[1], ' ');

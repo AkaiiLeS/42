@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-void	ft_pushb(t_list **stack_a, t_list **stack_b, int size)
+void	ft_pushb(t_ps **stack_a, t_ps **stack_b, int size)
 {
 	int	push;
 
@@ -28,9 +28,9 @@ void	ft_pushb(t_list **stack_a, t_list **stack_b, int size)
 	}
 }
 
-static void	ft_solve(t_list **stack_a, t_list **stack_b)
+static void	ft_solve(t_ps **stack_a, t_ps **stack_b)
 {
-	t_list	*tmp;
+	t_ps	*tmp;
 	int		cheapest;
 	int		cost;
 	int		cost_a;
@@ -52,7 +52,7 @@ static void	ft_solve(t_list **stack_a, t_list **stack_b)
 	ft_move(stack_a, stack_b, cost_a, cost_b);
 }
 
-static void	double_rotor(t_list **stack_a)
+static void	double_rotor(t_ps **stack_a)
 {
 	int	size;
 
@@ -69,7 +69,7 @@ static void	double_rotor(t_list **stack_a)
 	}
 }
 
-void	ft_sort(t_list **stack_a, t_list **stack_b, int size)
+void	ft_sort(t_ps **stack_a, t_ps **stack_b, int size)
 {
 	ft_pushb(stack_a, stack_b, size);
 	ft_sort3(stack_a);

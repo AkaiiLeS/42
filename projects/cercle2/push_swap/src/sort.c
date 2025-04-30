@@ -6,13 +6,13 @@
 /*   By: akaiissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 08:19:50 by akaiissa          #+#    #+#             */
-/*   Updated: 2025/04/30 08:21:08 by akaiissa         ###   ########.fr       */
+/*   Updated: 2025/04/30 11:44:52 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_getmax(t_list *stack)
+int	ft_getmax(t_ps *stack)
 {
 	int	max;
 
@@ -26,10 +26,10 @@ int	ft_getmax(t_list *stack)
 	return (max);
 }
 
-void	ft_getid(t_list *stack)
+void	ft_getid(t_ps *stack)
 {
-	t_list	*head;
-	t_list	*tmp;
+	t_ps	*head;
+	t_ps	*tmp;
 	int		i;
 
 	head = stack;
@@ -48,7 +48,7 @@ void	ft_getid(t_list *stack)
 	}
 }
 
-int	ft_is_sorted(t_list *stack)
+int	ft_is_sorted(t_ps *stack)
 {
 	while (stack->next)
 	{
@@ -59,7 +59,7 @@ int	ft_is_sorted(t_list *stack)
 	return (1);
 }
 
-void	ft_sort3(t_list **stack)
+void	ft_sort3(t_ps **stack)
 {
 	int	max;
 
@@ -74,7 +74,7 @@ void	ft_sort3(t_list **stack)
 		ft_sa(stack, 0);
 }
 
-void	ft_sort5(t_list **stack_a, t_list **stack_b, int size)
+void	ft_sort5(t_ps **stack_a, t_ps **stack_b, int size)
 {
 	while (ft_lstsize(*stack_a) > size - 2)
 	{

@@ -1,8 +1,8 @@
 #include "../includes/push_swap.h"
 
-void	ft_lstclear(t_list **lst)
+void	ft_lstclear(t_ps **lst)
 {
-	t_list	*tmp;
+	t_ps	*tmp;
 
 	if (!lst)
 		return ;
@@ -15,7 +15,7 @@ void	ft_lstclear(t_list **lst)
 	*lst = NULL;
 }
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_ps *lst)
 {
 	int	i;
 
@@ -28,11 +28,11 @@ int	ft_lstsize(t_list *lst)
 	return (i);
 }
 
-t_list	*ft_lstnew(int value)
+t_ps	*ft_lstnew(int value)
 {
-	t_list	*new;
+	t_ps	*new;
 
-	new = (t_list *)malloc(sizeof(t_list));
+	new = (t_ps *)malloc(sizeof(t_ps));
 	if (!new)
 		return (NULL);
 	new->value = value;
@@ -45,9 +45,9 @@ t_list	*ft_lstnew(int value)
 	return (new);
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_ps **lst, t_ps *new)
 {
-	t_list	*tmp;
+	t_ps	*tmp;
 
 	if (*lst == NULL)
 		*lst = new;
@@ -60,10 +60,10 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 }
 
-t_list	*ft_init(char **av)
+t_ps	*ft_init(char **av)
 {
-	t_list	*a;
-	t_list	*new;
+	t_ps	*a;
+	t_ps	*new;
 	int		content;
 	int		i;
 	int		n;

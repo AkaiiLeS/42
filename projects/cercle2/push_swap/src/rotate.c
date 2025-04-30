@@ -6,16 +6,16 @@
 /*   By: akaiissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 08:17:57 by akaiissa          #+#    #+#             */
-/*   Updated: 2025/04/30 08:18:26 by akaiissa         ###   ########.fr       */
+/*   Updated: 2025/04/30 11:45:26 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	ft_rotate(t_list **stack)
+static void	ft_rotate(t_ps **stack)
 {
-	t_list	*first;
-	t_list	*last;
+	t_ps	*first;
+	t_ps	*last;
 
 	if (!stack || !(*stack) || !(*stack)->next)
 		return ;
@@ -28,21 +28,21 @@ static void	ft_rotate(t_list **stack)
 	last->next = first;
 }
 
-void	ft_ra(t_list **stack, int n)
+void	ft_ra(t_ps **stack, int n)
 {
 	ft_rotate(stack);
 	if (n == 0)
 		ft_printf("ra\n");
 }
 
-void	ft_rb(t_list **stack, int n)
+void	ft_rb(t_ps **stack, int n)
 {
 	ft_rotate(stack);
 	if (n == 0)
 		ft_printf("rb\n");
 }
 
-void	ft_rr(t_list **stack_a, t_list **stack_b, int n)
+void	ft_rr(t_ps **stack_a, t_ps **stack_b, int n)
 {
 	ft_rotate(stack_a);
 	ft_rotate(stack_b);

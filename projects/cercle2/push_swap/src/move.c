@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-static void	rr(t_list **stack_a, t_list **stack_b, int *cost_a, int *cost_b)
+static void	rr(t_ps **stack_a, t_ps **stack_b, int *cost_a, int *cost_b)
 {
 	while (*cost_a < 0 && *cost_b < 0)
 	{
@@ -10,7 +10,7 @@ static void	rr(t_list **stack_a, t_list **stack_b, int *cost_a, int *cost_b)
 	}
 }
 
-static void	r(t_list **stack_a, t_list **stack_b, int *cost_a, int *cost_b)
+static void	r(t_ps **stack_a, t_ps **stack_b, int *cost_a, int *cost_b)
 {
 	while (*cost_a > 0 && *cost_b > 0)
 	{
@@ -20,7 +20,7 @@ static void	r(t_list **stack_a, t_list **stack_b, int *cost_a, int *cost_b)
 	}
 }
 
-static void	rot_a(t_list **stack, int *cost)
+static void	rot_a(t_ps **stack, int *cost)
 {
 	while (*cost)
 	{
@@ -37,7 +37,7 @@ static void	rot_a(t_list **stack, int *cost)
 	}
 }
 
-static void	rot_b(t_list **stack, int *cost)
+static void	rot_b(t_ps **stack, int *cost)
 {
 	while (*cost)
 	{
@@ -54,7 +54,7 @@ static void	rot_b(t_list **stack, int *cost)
 	}
 }
 
-void	ft_move(t_list **stack_a, t_list **stack_b, int cost_a, int cost_b)
+void	ft_move(t_ps **stack_a, t_ps **stack_b, int cost_a, int cost_b)
 {
 	if (cost_a < 0 && cost_b < 0)
 		rr(stack_a, stack_b, &cost_a, &cost_b);
