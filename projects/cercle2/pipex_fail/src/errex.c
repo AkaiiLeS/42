@@ -6,7 +6,7 @@
 /*   By: akaiissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:54:21 by akaiissa          #+#    #+#             */
-/*   Updated: 2025/04/28 11:47:30 by salsoysa         ###   ########.fr       */
+/*   Updated: 2025/04/30 22:14:09 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,3 +80,4 @@ void	close_pipes(t_pipex *p)
 		i++;
 	}
 }
+// close outfile dans l'enfant et infile dans le parent
