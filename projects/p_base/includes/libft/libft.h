@@ -6,7 +6,7 @@
 /*   By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 09:52:03 by salsoysa          #+#    #+#             */
-/*   Updated: 2025/03/05 14:14:47 by salsoysa         ###   ########.fr       */
+/*   Updated: 2025/04/30 12:41:06 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 # define LIBFT_H
 
 # include <fcntl.h>
+# include <limits.h>
+# include <stdarg.h>
 # include <stddef.h>
+# include <stdint.h>
 # include <stdlib.h>
+# include <string.h>
 # include <unistd.h>
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
@@ -25,7 +29,7 @@
 #  define MAX_FD 1024
 # endif
 
-// struct
+// -- Struct -- //
 typedef struct s_list
 {
 	void			*content;
@@ -54,10 +58,12 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 char				*ft_strnstr(const char *big, const char *little,
 						size_t len);
 int					ft_atoi(const char *nptr);
+long				ft_atol(const char *str);
 void				*ft_calloc(size_t nbe, size_t size);
 char				*ft_strdup(const char *s);
+int					ft_putnbr(int nb);
 
-// second part
+// -- second part -- //
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				**ft_split(char const *s, char c);
 char				*ft_strtrim(char const *s1, char const *set);
@@ -71,19 +77,29 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
 // List
-t_list				*ft_lstlast(t_list *lst);
-int					ft_lstsize(t_list *lst);
-void				ft_lstadd_back(t_list **lst, t_list *new_l);
-void				ft_lstadd_front(t_list **lst, t_list *new_l);
-t_list				*ft_lstnew(void *content);
-t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-						void (*del)(void *));
-void				ft_lstclear(t_list **lst, void (*del)(void *));
-void				ft_lstiter(t_list *lst, void (*f)(void *));
-void				ft_lstdelone(t_list *lst, void (*del)(void *));
+// t_list				*ft_lstlast(t_list *lst);
+// int					ft_lstsize(t_list *lst);
+// void				ft_lstadd_back(t_list **lst, t_list *new_l);
+// void				ft_lstadd_front(t_list **lst, t_list *new_l);
+// t_list				*ft_lstnew(void *content);
+// t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+//						void (*del)(void *));
+// void				ft_lstclear(t_list **lst, void (*del)(void *));
+// void				ft_lstiter(t_list *lst, void (*f)(void *));
+// void				ft_lstdelone(t_list *lst, void (*del)(void *));
 
-// gnl
-
+// -- Gnl -- //
 char				*get_next_line(int fd);
 
+// -- Printf -- //
+int					ft_printf(const char *str, ...);
+int					ft_print_hex(unsigned int nbr, int wcase);
+int					ft_print_char(char c);
+int					ft_print_uint(unsigned int nbr);
+int					ft_print_pvoid(uintptr_t p);
+int					ft_print_string(char *str);
+int					ft_print_decimal(int a);
+int					ft_puthex(unsigned int nbr, char *str_hex);
+int					ft_putptr(uintptr_t nbr);
+int					ft_putunbr(unsigned int nbr);
 #endif

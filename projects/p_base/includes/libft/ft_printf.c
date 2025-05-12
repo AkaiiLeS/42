@@ -6,7 +6,7 @@
 /*   By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:48:45 by salsoysa          #+#    #+#             */
-/*   Updated: 2025/01/29 19:25:15 by salsoysa         ###   ########.fr       */
+/*   Updated: 2025/04/30 13:10:40 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static int	subprint(const char *str, va_list param)
 		}
 		i++;
 	}
-	printf("\n%d\n", i);
 	return (cnt);
 }
 

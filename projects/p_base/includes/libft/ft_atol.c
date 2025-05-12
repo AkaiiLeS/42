@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salsoysa <salsoysa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 13:38:01 by salsoysa          #+#    #+#             */
-/*   Updated: 2025/04/30 12:38:54 by salsoysa         ###   ########.fr       */
+/*   Created: 2025/04/30 11:49:52 by salsoysa          #+#    #+#             */
+/*   Updated: 2025/04/30 13:28:52 by salsoysa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_puthex(unsigned int nbr, char *str_hex)
+long	ft_atol(const char *str)
 {
-	int	cnt;
+	long	res;
+	int		sign;
 
-	cnt = 0;
-	if (nbr >= 16)
+	res = 0;
+	sign = 1;
+	while (*str && ((*str >= 9 && *str <= 13) || *str == 32))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		cnt += ft_puthex(nbr / 16, str_hex);
-		cnt += ft_puthex(nbr % 16, str_hex);
+		if (*str == '-')
+			sign *= -1;
+		str++;
 	}
-	else
-		cnt += ft_print_char(str_hex[nbr]);
-	if (cnt < 0)
-		return (-1);
-	return (cnt);
+	while (ft_isdigit((int)*str))
+	{
+		res = res * 10 + *str - '0';
+		str++;
+	}
+	return (sign * res);
 }
